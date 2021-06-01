@@ -15,6 +15,11 @@
 
         @if(\Illuminate\Support\Facades\App::getLocale() == 'fa')
             <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v28.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+            <style>
+                body, * {
+                    font-family: Vazir, Tahoma;
+                }
+            </style>
         @endif
 
         <!-- Scripts -->
