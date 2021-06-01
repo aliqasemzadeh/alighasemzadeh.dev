@@ -44,21 +44,11 @@
                     </div>
                 </div>
                 <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
-                    <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Solutions">
-                        Solutions
-                    </a>
-
-                    <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Pricing">
-                        Pricing
-                    </a>
-
-                    <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Docs">
-                        Docs
-                    </a>
-
-                    <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Company">
-                        Company
-                    </a>
+                    @foreach($pages as $page)
+                        <a href="{{ route('page', [$page->slug]) }}" class="text-base font-medium text-white hover:text-indigo-50" key="{{ $page->slug }}">
+                            {{ $page->title }}
+                        </a>
+                    @endforeach
                 </div>
             </nav>
         </header>
