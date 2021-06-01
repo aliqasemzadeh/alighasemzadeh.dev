@@ -14,6 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'description' => 'I am php developer, Code with laravel.',
 
     /*
     |--------------------------------------------------------------------------

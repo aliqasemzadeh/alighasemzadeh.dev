@@ -14,10 +14,10 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $posts = WinkPost::with('tags')
+        $posts = WinkPost::with(['tags', 'author'])
             ->live()
             ->orderBy('publish_date', 'DESC')
-            ->paginate(10);
+            ->paginate(9);
         return view('blog.index', [
             'posts' => $posts,
         ]);
