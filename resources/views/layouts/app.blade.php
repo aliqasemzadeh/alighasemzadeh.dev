@@ -22,7 +22,7 @@
                 <div class="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none">
                     <div class="flex items-center">
                         <a href="{{ route('index') }}">
-                            <span class="sr-only">{{ __('app.name') }}</span>
+                            <span class="sr-only">{{ config('app.name') }}</span>
                             <img class="h-10 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white" alt="">
                         </a>
                         <div class="hidden ml-10 space-x-8 lg:block">

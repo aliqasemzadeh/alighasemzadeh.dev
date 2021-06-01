@@ -7,10 +7,10 @@
         <div class="relative max-w-7xl mx-auto">
             <div class="text-center">
                 <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
-                    {{ __('app.name') }}
+                    {{ config('app.name') }}
                 </h2>
                 <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-                    {{ __('app.description') }}
+                    {{ config('app.description') }}
                 </p>
             </div>
             <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
