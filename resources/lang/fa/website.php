@@ -1,0 +1,4 @@
+<?php
+return [
+    'direction' => 'rtl'
+];

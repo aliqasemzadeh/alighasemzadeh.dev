@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
     Route::get('/', [\App\Http\Controllers\BlogController::class, 'index'])->name('index');
     Route::get('/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('post');
+    Route::get('/page/{slug}', [\App\Http\Controllers\PageController::class, 'show'])->name('page');
 });
 

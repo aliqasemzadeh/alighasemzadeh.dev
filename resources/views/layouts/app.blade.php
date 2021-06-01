@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ __('website.direction') }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,26 +26,21 @@
                             <img class="h-10 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white" alt="">
                         </a>
                         <div class="hidden ml-10 space-x-8 lg:block">
-                            <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Solutions">
-                                Solutions
+                            @foreach($pages as $page)
+                            <a href="{{ route('page', [ $page->slug]) }}" class="text-base font-medium text-white hover:text-indigo-50" key="Solutions">
+                                {{ $page->title }}
                             </a>
-
-                            <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Pricing">
-                                Pricing
-                            </a>
-
-                            <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Docs">
-                                Docs
-                            </a>
-
-                            <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Company">
-                                Company
-                            </a>
+                            @endforeach
                         </div>
                     </div>
                     <div class="ml-10 space-x-4">
-                        <a href="#" class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">Sign in</a>
-                        <a href="#" class="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50">Sign up</a>
+                        @if(\Illuminate\Support\Facades\App::getLocale() == 'en')
+                            <a href="{{ \LaravelLocalization::getLocalizedURL('fa', null, [], true) }}" class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">FA</a>
+                            <a href="{{ \LaravelLocalization::getLocalizedURL('en', null, [], true) }}" class="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50">EN</a>
+                        @else
+                            <a href="{{ \LaravelLocalization::getLocalizedURL('fa', null, [], true) }}" class="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50">FA</a>
+                            <a href="{{ \LaravelLocalization::getLocalizedURL('en', null, [], true) }}" class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">EN</a>
+                        @endif
                     </div>
                 </div>
                 <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">

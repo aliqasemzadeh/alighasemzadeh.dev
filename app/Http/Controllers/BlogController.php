@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Wink\WinkPost;
 
 class BlogController extends Controller
@@ -16,6 +17,7 @@ class BlogController extends Controller
     {
         $posts = WinkPost::with(['tags', 'author'])
             ->live()
+            ->where('language', App::getLocale())
             ->orderBy('publish_date', 'DESC')
             ->paginate(9);
         return view('blog.index', [
