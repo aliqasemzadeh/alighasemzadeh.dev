@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
+    Route::get('/', [\App\Http\Controllers\BlogController::class, 'index'])->name('index');
+    Route::get('/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('post');
+});
 
-Route::get('/', [\App\Http\Controllers\BlogController::class, 'index'])->name('index');
-Route::get('/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('post');
